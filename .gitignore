@@ -1,0 +1,7 @@
+node_modules
+.DS_Store
+dist
+.env
+
+# Personal deployment notes, kept out of the public repo
+MANUAL_STEPS.md

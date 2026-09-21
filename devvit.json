@@ -1,0 +1,63 @@
+{
+  "$schema": "https://developers.reddit.com/schema/config-file.v1.json",
+  "name": "hot-importer",
+  "server": {
+    "dir": "dist/server",
+    "entry": "index.cjs"
+  },
+  "scheduler": {
+    "tasks": {
+      "update-sidebar": {
+        "endpoint": "/internal/scheduler/update-sidebar",
+        "cron": "*/15 * * * *"
+      }
+    }
+  },
+  "menu": {
+    "items": [
+      {
+        "label": "Update sidebar now",
+        "description": "Fetch the latest hot posts from the source subreddit and update the sidebar immediately.",
+        "location": "subreddit",
+        "forUserType": "moderator",
+        "endpoint": "/internal/menu/update-sidebar"
+      }
+    ]
+  },
+  "settings": {
+    "subreddit": {
+      "sourceSubreddit": {
+        "type": "string",
+        "label": "Source subreddit to pull hot posts from (without the r/ prefix)",
+        "defaultValue": "askTO"
+      },
+      "wikiPage": {
+        "type": "string",
+        "label": "Wiki page holding the sidebar markdown",
+        "defaultValue": "config/sidebar"
+      },
+      "markerName": {
+        "type": "string",
+        "label": "Marker name: the imported list is placed between [](/NAME-start) and [](/NAME-end) in the wiki page",
+        "defaultValue": "hot-importer"
+      },
+      "postCount": {
+        "type": "number",
+        "label": "Number of posts to list",
+        "defaultValue": 7
+      },
+      "widgetName": {
+        "type": "string",
+        "label": "New Reddit sidebar widget name (leave blank to skip; created automatically on first run if missing)",
+        "defaultValue": ""
+      }
+    }
+  },
+  "permissions": {
+    "reddit": true
+  },
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite build --watch"
+  }
+}
