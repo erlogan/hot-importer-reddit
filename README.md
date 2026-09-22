@@ -25,7 +25,7 @@ of the subreddit it's installed in, so that's the only wiki it can edit.
 | Wiki page | `config/sidebar` | The page holding the sidebar markdown |
 | Marker name | `hot-importer` | List goes between `[](/NAME-start)` and `[](/NAME-end)` |
 | Number of posts | `7` | Stickied posts are skipped |
-| Widget name | *(blank)* | Blank = old Reddit only. Set it to also update a new-Reddit sidebar widget |
+| Widget name | *(blank)* | Blank = old Reddit only. Set it to also update a new-Reddit sidebar widget (max 29 characters) |
 
 ### New Reddit sidebar widget
 

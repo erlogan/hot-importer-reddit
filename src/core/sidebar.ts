@@ -1,6 +1,12 @@
 import { context, reddit, settings } from '@devvit/web/server';
 import type { Widget } from '@devvit/web/server';
 
+/**
+ * Reddit rejects a widget shortName of 30 characters or more with an opaque
+ * INVALID_ARGUMENT, so it's checked up front to produce a readable message.
+ */
+const MAX_WIDGET_NAME_LENGTH = 29;
+
 type SidebarConfig = {
   sourceSubreddit: string;
   subreddit: string;
@@ -27,13 +33,21 @@ async function getConfig(): Promise<SidebarConfig> {
     throw new Error('Could not determine the installed subreddit');
   }
 
+  const widgetName = widget?.trim() ?? '';
+  if (widgetName.length > MAX_WIDGET_NAME_LENGTH) {
+    throw new Error(
+      `Widget name must be ${MAX_WIDGET_NAME_LENGTH} characters or fewer ` +
+        `(currently ${widgetName.length}); shorten it in the app's settings`
+    );
+  }
+
   return {
     sourceSubreddit: source?.trim() || 'AskReddit',
     subreddit,
     wikiPage: page?.trim() || 'config/sidebar',
     markerName: marker?.trim() || 'hot-importer',
     postCount: count && count > 0 ? Math.floor(count) : 7,
-    widgetName: widget?.trim() ?? '',
+    widgetName,
   };
 }
 
