@@ -1,11 +1,10 @@
 # hot-importer
 
-A [Devvit](https://developers.reddit.com/docs) port of `thetorontobot.py`'s
-sidebar-updating functionality (itself descended from Deimorz's "hot sister"
-script). Every 15 minutes it pulls the hot posts from a source subreddit
-(default: r/askTO) and splices them into the sidebar wiki page
-(`config/sidebar`) of the subreddit it's installed in, between a configurable
-pair of markers (default: `[](/hot-importer-start)` and
+A [Devvit](https://developers.reddit.com/docs) app that mirrors another
+subreddit's hot posts into your sidebar. Every 15 minutes it pulls the hot posts
+from a source subreddit (default: r/AskReddit) and splices them into the sidebar
+wiki page (`config/sidebar`) of the subreddit it's installed in, between a
+configurable pair of markers (default: `[](/hot-importer-start)` and
 `[](/hot-importer-end)`).
 
 It can optionally keep the same list in a new-Reddit (sh.reddit) sidebar
@@ -22,7 +21,7 @@ of the subreddit it's installed in, so that's the only wiki it can edit.
 
 | Setting | Default | Notes |
 | --- | --- | --- |
-| Source subreddit | `askTO` | Where hot posts are read from |
+| Source subreddit | `AskReddit` | Where hot posts are read from |
 | Wiki page | `config/sidebar` | The page holding the sidebar markdown |
 | Marker name | `hot-importer` | List goes between `[](/NAME-start)` and `[](/NAME-end)` |
 | Number of posts | `7` | Stickied posts are skipped |
@@ -60,10 +59,9 @@ without waiting for the 15-minute cron.
 
 ## Credits
 
-Ported from the sidebar half of `thetorontobot`, a bot that has run on
-r/toronto since 2016. The concept goes back to Deimorz's "hot sister" script
-("hot" being the hot listing); this is an independent reimplementation of the
-idea, not a copy of that code.
+The concept goes back to Deimorz's "hot sister" script ("hot" being the hot
+listing); this is an independent reimplementation of the idea, not a copy of
+that code.
 
 ## License
 

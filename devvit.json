@@ -29,7 +29,7 @@
       "sourceSubreddit": {
         "type": "string",
         "label": "Source subreddit to pull hot posts from (without the r/ prefix)",
-        "defaultValue": "askTO"
+        "defaultValue": "AskReddit"
       },
       "wikiPage": {
         "type": "string",

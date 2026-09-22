@@ -28,7 +28,7 @@ async function getConfig(): Promise<SidebarConfig> {
   }
 
   return {
-    sourceSubreddit: source?.trim() || 'askTO',
+    sourceSubreddit: source?.trim() || 'AskReddit',
     subreddit,
     wikiPage: page?.trim() || 'config/sidebar',
     markerName: marker?.trim() || 'hot-importer',
